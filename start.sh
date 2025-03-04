@@ -8,8 +8,8 @@ echocmd() {
 }
 
 fetchbase () {
-	center " Dōmo arigatō, Mr. Roboto "
-	echo -e " "
+	bash center " Dōmo arigatō, Mr. Roboto "
+	echo " "
 	fastfetch
 }
 

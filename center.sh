@@ -6,3 +6,5 @@ center() {
 }
 
 center "$1"
+
+# has to be run as bash
