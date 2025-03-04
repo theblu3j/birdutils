@@ -38,7 +38,7 @@ start() {
 
 
 HOSTNAME="$(uname -n)"
-DISTRO="$(cat /etc/os-release | grep ID= | sed 's/^...//' | grep -v ID=)"
+DISTRO="$(cat /etc/os-release | grep ID= | sed 's/^...//' | grep -v ID= | sed 's/\"//g' )"
 
 NOCOLOR='\033[0m'
 RED='\033[0;31m'
