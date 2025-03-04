@@ -1,4 +1,4 @@
-#/bin/bash
+#/bin/sh
 
 center() {
   termwidth="$(tput cols)"
@@ -14,36 +14,31 @@ echocmd() {
 fetchbase () {
 	center " Dōmo arigatō, Mr. Roboto "
 	echo -e " "
-	fastfetch	
+	fastfetch
 }
 
 
 start() {
-  if [ "$HOSTNAME" = "astro" ]; then
+  if [ "$DISTRO" = "arch" ]; then
   printf ${LIGHTCYAN}
   fetchbase
-  elif [ "$HOSTNAME" = "mini" ]; then
-  printf ${LIGHTCYAN}
-  fetchbase
-  printf ${LIGHTCYAN}
-  center "Checking updates"
-  checkupdates
-  printf ${NOCOLOR}
+    if [ "$HOSTNAME" = "mini" ]; then
+      printf ${LIGHTCYAN}
+      center "Checking updates"
+      checkupdates
+    fi
+  elif [ "$DISTRO" = "endeavouros" ]  || [ "$DISTRO" = "alpine" ]; then
+    printf ${LIGHTPURPLE}
+    fetchbase
   else
-  printf ${LIGHTPURPLE}
-  fetchbase
+    fetchbase
   fi
+  printf ${NOCOLOR}
 }
 
-ps1() {
-if  [$CONTAINER_ID == ""]; then
-  PS1='[\W]\$ '
-else
-  PS1='$CONTAINER_ID:[\W]\$ '
-fi
-}
 
 HOSTNAME="$(uname -n)"
+DISTRO="$(cat /etc/os-release | grep ID= | sed 's/^...//' | grep -v ID=)"
 
 NOCOLOR='\033[0m'
 RED='\033[0;31m'
@@ -62,14 +57,4 @@ LIGHTPURPLE='\033[1;35m'
 LIGHTCYAN='\033[1;36m'
 WHITE='\033[1;37m'
 
-alias yay='paru'
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias grub-refresh='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias cat='bat'
-
-alias error='journalctl -r -p err'
-alias logf="journalctl -f"
-alias badssh="sudo journalctl -u sshd.service -r | grep -i 'invalid\|failed\|password\|did' | less"
-ps1
 start
