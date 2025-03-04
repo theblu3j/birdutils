@@ -9,7 +9,7 @@
 # --completion makes it only select mirrors that are up to date, but it also only works for arch repos
 # chmod 744 thing is for pkgstats timer, probably not a security risk i think
 
-
+# included here in case you dont have center.sh
 center() {
   termwidth="$(tput cols)"
   padding="$(printf '%0.1s' -{1..500})"

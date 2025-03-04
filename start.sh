@@ -1,14 +1,7 @@
-#/bin/sh
-
-
-
-echocmd() {
-    echo "Executing: $@"
-    "$@"
-}
+#!/bin/bash
 
 fetchbase () {
-	bash center " Dōmo arigatō, Mr. Roboto "
+    center " Dōmo arigatō, Mr. Roboto "
 	echo " "
 	fastfetch
 }
