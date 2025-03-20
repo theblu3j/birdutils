@@ -1,4 +1,4 @@
-# tools.sh
+# tools
 
 Tool scripts I use
 
