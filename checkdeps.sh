@@ -3,6 +3,13 @@
 # quick script to look for unneeded packages while looking nice and colorful
 # with a warning included for any of my friends that remove the listed packages willy nilly to automatically absolve myself of guilt
 
+# center script
+center() {
+  termwidth="$(tput cols)"
+  padding="$(printf '%0.1s' -{1..500})"
+  printf '%*.*s %s %*.*s\n' 0 "$(((termwidth-2-${#1})/2))" "$padding" "$1" 0 "$(((termwidth-1-${#1})/2))" "$padding"
+}
+
 # COLORS COLORS COLORS COLORS
 NOCOLOR='\033[0m'
 RED='\033[0;31m'

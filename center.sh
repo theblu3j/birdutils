@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 main() {
   termwidth="$(tput cols)"
   padding="$(printf '%0.1s' -{1..500})"
