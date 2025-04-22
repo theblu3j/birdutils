@@ -9,7 +9,7 @@ center() {
 
 fetchbase () {
     center " Dōmo arigatō, Mr. Roboto "
-	echo " "
+	echo -e "\n"
 	fastfetch
 }
 
